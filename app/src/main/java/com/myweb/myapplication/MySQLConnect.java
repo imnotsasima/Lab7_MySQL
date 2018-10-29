@@ -84,7 +84,7 @@ public class MySQLConnect {
         try {
             ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
             nameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            nameValuePairs.add(new BasicNameValuePair("comment","value"));
+            nameValuePairs.add(new BasicNameValuePair("comment",value));
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(URL+SENT_URL);
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
