@@ -27,7 +27,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-class MySQLConnect {
+public class MySQLConnect {
     private final Activity main;
     private List<String> list;
     private String URL ="http://10.199.9.26/", GET_URL = "get_post.php", SENT_URL = "sent_post.php";
@@ -41,19 +41,19 @@ class MySQLConnect {
 
     public List<String> getData() {
         String url = URL + GET_URL;
+
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 showJSON(response);
-                Toast.makeText(main, list.get(0), Toast.LENGTH_LONG).show();
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(main, error.getMessage(), Toast.LENGTH_LONG).show();
+
             }
-        }
-        );
+        });
         RequestQueue requestQueue = Volley.newRequestQueue(main.getApplicationContext());
         requestQueue.add(stringRequest);
 
@@ -90,7 +90,7 @@ class MySQLConnect {
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
             httpClient.execute(httpPost);
 
-            Toast.makeText(main, "Completed", Toast.LENGTH_LONG).show();
+            Toast.makeText(main, "Completed.", Toast.LENGTH_LONG).show();
         }catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (ClientProtocolException e) {
